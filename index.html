@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eFootball Tournament & OCR Scanner Pro</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --card-bg: #141419;
+            --card-border: #22222e;
+            --gold-primary: #f5c518;
+            --gold-gradient: linear-gradient(135deg, #f5c518 0%, #a67c00 100%);
+            --text-main: #f0f0f5;
+            --text-muted: #8e8e9e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; padding: 20px; }
+
+        .header { text-align: center; margin-bottom: 25px; border-bottom: 1px solid var(--card-border); padding-bottom: 15px; }
+        .header h1 { font-size: 22px; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; font-weight: 800; }
+
+        .container { max-width: 900px; margin: 0 auto; }
+        .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+        .card h2 { font-size: 16px; color: var(--gold-primary); margin-bottom: 15px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+        .form-control { width: 100%; padding: 10px 14px; background: #0f0f14; border: 1px solid var(--card-border); border-radius: 8px; color: #fff; font-size: 14px; outline: none; }
+
+        .btn-main { background: var(--gold-gradient); color: #000; font-weight: bold; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; width: 100%; }
+
+        .table-custom { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+        .table-custom th { text-align: left; padding: 10px; color: var(--text-muted); border-bottom: 1px solid var(--card-border); }
+        .table-custom td { padding: 12px 10px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+
+        .upload-zone { border: 2px dashed var(--gold-primary); border-radius: 8px; padding: 20px; text-align: center; background: rgba(245, 197, 24, 0.05); cursor: pointer; }
+        #scan-status { margin-top: 10px; font-size: 13px; color: var(--gold-primary); font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><i class="fa-solid fa-trophy"></i> eFootball Manager & OCR Scanner</h1>
+        <p style="color: var(--text-muted); font-size: 12px; margin-top: 4px;">Automatic Match Stats Extractor from Screenshots</p>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2><i class="fa-solid fa-plus-circle"></i> Unda Ligi Mpya</h2>
+            <div class="form-group">
+                <label>Jina la Ligi</label>
+                <input type="text" id="league-name" class="form-control" placeholder="e.g. Neddoz eFootball Champions League">
+            </div>
+            <div class="form-group">
+                <label>Orodha ya Timu (Tenga kwa koma)</label>
+                <textarea id="league-teams" class="form-control" rows="2" placeholder="e.g. Neddoz XI, Titan FC, Apex Stars, Royal Strikers"></textarea>
+            </div>
+            <button class="btn-main" onclick="initLeague()">Anzisha Ligi</button>
+        </div>
+
+        <div class="card" id="scan-section" style="display: none;">
+            <h2><i class="fa-solid fa-camera"></i> Scan eFootball Match Screenshot</h2>
+            <div class="upload-zone" onclick="document.getElementById('screenshot-input').click()">
+                <i class="fa-solid fa-file-image" style="font-size: 32px; color: var(--gold-primary); margin-bottom: 8px;"></i>
+                <p>Bofya hapa kuchagua Screenshot ya eFootball Match Stats</p>
+                <input type="file" id="screenshot-input" accept="image/*" style="display: none;" onchange="processScreenshot(event)">
+            </div>
+            <div id="scan-status"></div>
+        </div>
+
+        <div class="card" id="table-section" style="display: none;">
+            <h2 id="tourney-title"><i class="fa-solid fa-list-ol"></i> Msimamo wa Ligi</h2>
+            <table class="table-custom">
+                <thead>
+                    <tr><th>Pos</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr>
+                </thead>
+                <tbody id="league-tbody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="src/app.js"></script>
+</body>
+</html>
