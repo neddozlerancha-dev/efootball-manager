@@ -29,6 +29,47 @@ body:before{
 
 .wallpaper-mark{position:absolute;right:5%;top:50%;transform:translateY(-50%) rotate(-12deg);font-size:180px;opacity:.08;filter:drop-shadow(0 0 35px #48ff4240);pointer-events:none}
 @media(max-width:600px){.wallpaper-mark{font-size:110px;right:2%;top:60%}}
+
+/* PREMIUM ARENA THEME v2 */
+:root{
+ --bg:#05050a;--panel:#0b0b14;--panel2:#11111d;--line:#27253b;
+ --green:#79ff4f;--green2:#b6ff91;--text:#f7f7ff;--muted:#9a9ab0;
+ --danger:#ff5570;--gold:#ffd76a;--blue:#5e8cff;--violet:#a66cff;
+ --shadow:0 24px 80px #000b
+}
+body{
+ background:
+ radial-gradient(circle at 10% 5%,rgba(94,140,255,.16),transparent 26%),
+ radial-gradient(circle at 90% 10%,rgba(166,108,255,.14),transparent 25%),
+ radial-gradient(circle at 50% 110%,rgba(121,255,79,.10),transparent 34%),
+ linear-gradient(135deg,#030308,#080812 50%,#05050b);
+ color:var(--text);overflow-x:hidden
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;background:
+ linear-gradient(115deg,transparent 0 48%,rgba(121,255,79,.12) 49%,transparent 50%),
+ linear-gradient(65deg,transparent 0 48%,rgba(94,140,255,.10) 49%,transparent 50%),
+ radial-gradient(circle at 50% 50%,transparent 0 38%,rgba(255,255,255,.025) 39%,transparent 40%);background-size:150px 150px,150px 150px,100% 100%;}
+body:after{content:"ARENA";position:fixed;right:-70px;bottom:70px;font-size:170px;font-weight:1000;letter-spacing:.08em;color:#fff;opacity:.025;transform:rotate(-18deg);pointer-events:none;z-index:-1}
+.logo{background:linear-gradient(135deg,#9dff68,#4c78ff 55%,#9a61ff);color:#050509;box-shadow:0 0 35px rgba(94,140,255,.28)}
+.brand h1{letter-spacing:.01em}.brand small{color:#a6a6ba}
+.sidebar{background:linear-gradient(180deg,rgba(13,13,24,.92),rgba(7,7,14,.90));border-color:#29283d;box-shadow:0 20px 60px #0008}
+.nav button{color:#aaa9bd}.nav button:hover,.nav button.active{background:linear-gradient(90deg,#17172a,#10101c);border-color:#353452;color:#fff}.nav button.active{box-shadow:inset 3px 0 var(--blue),0 0 25px rgba(94,140,255,.08)}
+.badge{background:#171a32;color:#91a9ff}
+.hero{background:linear-gradient(120deg,rgba(13,13,27,.96),rgba(7,8,18,.93)),radial-gradient(circle at 85% 50%,rgba(94,140,255,.22),transparent 30%);border-color:#35345a;box-shadow:0 28px 90px #0009}
+.hero:after{content:'⚽';opacity:.055;text-shadow:0 0 40px #79ff4f}
+.eyebrow{color:#8eabff}.hero h2 span{color:#9cff72}.hero p{color:#aaaabd}
+.btn{background:linear-gradient(135deg,#9cff63,#62d84d);color:#050808;box-shadow:0 10px 28px rgba(121,255,79,.18)}
+.btn.alt{background:linear-gradient(135deg,#1b1a32,#151525);color:#e5e5ff;border-color:#3a3858}.btn.ghost{background:#0b0b13;color:#e1e1ee;border-color:#2d2c42}.btn.danger{background:linear-gradient(135deg,#651b32,#421322);border:1px solid #8d2947}
+.card{background:linear-gradient(145deg,rgba(15,15,27,.91),rgba(8,8,16,.94));border-color:#29283e;box-shadow:0 18px 55px #0008}
+.grid .stat,.stat{background:linear-gradient(145deg,#10101d,#0b0b14);border-color:#29283e}.stat label{color:#818198}.stat span{color:#a5ff85}
+input,select{background:#080810;border-color:#302f47;color:#fff}input:focus,select:focus{border-color:#718dff;box-shadow:0 0 0 3px rgba(94,140,255,.13)}
+.item{background:linear-gradient(145deg,#0e0e19,#090910);border-color:#29283d}.pill{background:#17182a;color:#b7ff9c;border-color:#3b3a54}
+table th{color:#818198}th,td{border-bottom-color:#242337}tr:hover td{background:#121222}.match{background:linear-gradient(145deg,#11111e,#090910);border-color:#30304a}.notice{border-left-color:#79ff4f;background:#101b13}
+.auth-card{background:linear-gradient(145deg,rgba(10,10,19,.96),rgba(6,6,13,.96));border-color:#30304b;box-shadow:0 30px 100px #000c}
+.auth-visual{background:radial-gradient(circle at 80% 40%,rgba(121,255,79,.18),transparent 32%),radial-gradient(circle at 20% 80%,rgba(94,140,255,.16),transparent 30%),linear-gradient(145deg,#101021,#07070e)}
+.auth-visual h1 span{color:#9cff72}.mini{background:rgba(10,10,18,.72);border-color:#2e2d45}.mini b{color:#9cff72}
+.footer-icons .mini:nth-child(2) b{color:#8fb0ff}.footer-icons .mini:nth-child(3) b{color:#c29cff}
+@media(max-width:600px){body:after{font-size:90px;right:-40px}}
 </style></head><body>
 <section id="login" class="auth"><div class="auth-card"><div class="auth-visual"><div class="brand"><div class="logo">E</div><div><h1>eFootball</h1><small>TOURNAMENT HUB</small></div></div><h1>Play.<br><span>Compete.</span><br>Win.</h1><p class="muted">Run tournaments, manage fixtures, prove your results and climb the leaderboard.</p><div class="footer-icons"><div class="mini"><b>🏆 Tournaments</b><small class="muted">Join & compete</small></div><div class="mini"><b>⚡ Live Matches</b><small class="muted">Track results</small></div><div class="mini"><b>📈 Rankings</b><small class="muted">Climb the table</small></div></div></div><div class="auth-form"><div class="brand"><div class="logo">E</div><div><h1>Welcome back</h1><small>eFootball Tournament Hub</small></div></div><p class="muted">Login or create your player account.</p><div class="field"><label>Email address</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Password</label><input id="password" type="password" autocomplete="current-password" placeholder="••••••••"></div><div class="actions"><button class="btn" onclick="signIn()">Log in</button><button class="btn alt" onclick="signUp()">Create account</button></div><button class="btn ghost" style="width:100%;margin-top:9px" onclick="forgotPassword()">Forgot password?</button><button id="resendBtn" class="btn ghost hidden" style="width:100%;margin-top:9px" onclick="resendConfirmation()">Resend confirmation email</button><p id="msg" class="muted small" aria-live="polite"></p></div></div></section>
 <section id="app" class="hidden"><div class="shell"><div class="topbar"><div class="brand"><div class="logo">E</div><div><h1>eFootball Tournament Hub</h1><small>Play • Compete • Win</small></div></div><div class="userbox"><div class="avatar" id="avatar">P</div><div class="usertext"><b id="user">Player</b><br><small class="muted">Competitive player</small></div><button class="btn ghost" onclick="signOut()">Log out</button></div></div><div class="layout"><aside class="sidebar"><div class="eyebrow">Navigation</div><div class="nav"><button id="tabDash" class="active" onclick="showTab('dash')">⌂ Dashboard</button><button id="tabComp" onclick="showTab('comp')">🏆 Tournaments</button><button id="tabMatches" onclick="showTab('matches')">⚡ Match Centre <span id="matchBadge" class="badge hidden">0</span></button><button id="tabRankings" onclick="showTab('rankings')">📈 Rankings</button><button id="tabPlayers" onclick="showTab('players')">👥 Players</button><button id="tabProfile" onclick="showTab('profile')">◉ My Profile</button><button id="tabAdmin" class="hidden" onclick="showTab('admin')">🛡 Admin</button></div><div class="card" style="margin-top:18px"><b>🏅 Keep climbing</b><p class="muted small">Submit verified results to update your stats and tournament tables.</p></div></aside><main class="content">
