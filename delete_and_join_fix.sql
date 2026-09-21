@@ -1,0 +1,5 @@
+-- eFootball Tournament Hub: delete + safe join support
+-- The existing schema already has ON DELETE CASCADE for competition members and matches,
+-- and an RLS delete policy for competition creators/admins.
+-- The app now checks membership before inserting, so duplicate-key join errors are avoided.
+-- No destructive SQL migration is required for this fix.
