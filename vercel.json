@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/reset",
+      "destination": "/reset.html"
+    },
+    {
+      "source": "/((?!src/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
